@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: BuildMyProject
+    name: Build my project ✨
     runs-on: ubuntu-latest
     steps:
       # Checkout (without LFS)
@@ -63,7 +63,7 @@ jobs:
           path: build
 
   deployPages:
-      needs: BuildMyProject
+      needs: build
       name: Deploy to Github Pages 🚀
       runs-on: ubuntu-latest
       steps:
