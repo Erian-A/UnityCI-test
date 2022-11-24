@@ -62,7 +62,12 @@ jobs:
           name: Build
           path: build
 
+      - uses: actions/checkout@v2
+
       - uses: actions/download-artifact@v2
         with:
           name: Build
-          folder: buildsProject
+          path: buildsProject
+
+      - name: Display structure of downloaded files
+        run: ls -R
