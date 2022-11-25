@@ -64,6 +64,7 @@ jobs:
 
       - name: Display structure of downloaded files
         run: |
+          rm -r BuildWebGL
           mkdir BuildWebGL
           ls
           echo "--"
