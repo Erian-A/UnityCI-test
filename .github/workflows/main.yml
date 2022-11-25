@@ -63,29 +63,16 @@ jobs:
           path: build
 
       - name: Display structure of downloaded files
-        run: | 
-          ls
-      - name: Display artifacts folder
         run: |
-          cd artifacts
+          mkdir BuildWebGL
           ls
-          cd ..
-      - name: Display
-        run: |
-          cd build
-          ls
-          echo "--"
-          cd WebGL
-          ls
-          cd ..
-          cd ..
 
       - name: Commit artifact
         run: |
           git config --local user.email "erian.alves@ufv.br"
           git config --local user.name "Erian-A"
-          ls
-          git add ./build/WebGL/
+          cp build/WebGl/WebGL/* BuildWebGL
+          git add ./BuildWebGL
           git commit -m "Add build"
       - name: Push changes # push the output folder to your repo
         uses: ad-m/github-push-action@master
