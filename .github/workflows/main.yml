@@ -59,13 +59,22 @@ jobs:
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build
+          name: Builded
           path: build
 
       - uses: actions/download-artifact@v2
         with:
-          name: Build
-          path: buildsProject
+          name: Builded
+          path: ProjectBuild
 
       - name: Display structure of downloaded files
         run: ls -R
+
+      - name: Commit artifact
+        run: |
+          git add ./ProjectBuild
+          git commit -m "Add build"
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
