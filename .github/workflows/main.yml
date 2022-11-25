@@ -70,9 +70,17 @@ jobs:
       - name: Display structure of downloaded files
         run: | 
           ls
+      - name: Display artifacts folder
+        run: |
+          cd artifacts
+          ls
+          cd ..
+      - name: Display
+        run: |
           cd WebGL
           ls
           cd ..
+          echo "Changing folder"
           cd build
           ls
           cd ..
@@ -82,7 +90,7 @@ jobs:
           git config --local user.email "erian.alves@ufv.br"
           git config --local user.name "Erian-A"
           ls
-          git add ./WebGL
+          git add ./WebGL/WebGL
           git commit -m "Add build"
       - name: Push changes # push the output folder to your repo
         uses: ad-m/github-push-action@master
