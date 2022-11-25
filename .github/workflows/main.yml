@@ -65,23 +65,24 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: BuildWebGL
-          path: ProjectBuild
+          path: '.'
 
       - name: Display structure of downloaded files
         run: | 
-          ls -R
-          cd ProjectBuild
-          ls -R
+          ls
+          cd WebGL
+          ls
           cd ..
           cd build
-          ls -R
+          ls
           cd ..
 
       - name: Commit artifact
         run: |
           git config --local user.email "erian.alves@ufv.br"
           git config --local user.name "Erian-A"
-          git add ./ProjectBuild/WebGL
+          ls
+          git add ./WebGL
           git commit -m "Add build"
       - name: Push changes # push the output folder to your repo
         uses: ad-m/github-push-action@master
