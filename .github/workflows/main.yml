@@ -72,9 +72,11 @@ jobs:
 
       - name: Commit artifact
         run: |
+          git config --local user.email "erian.alves@ufv.br"
+          git config --local user.name "Erian-A"
           git add ./ProjectBuild
           git commit -m "Add build"
       - name: Push changes # push the output folder to your repo
         uses: ad-m/github-push-action@master
         with:
-          force: true
+          force: true 
