@@ -66,12 +66,29 @@ jobs:
         run: |
           mkdir BuildWebGL
           ls
+          echo "--"
+          cd build
+          ls
+          echo "--"
+          cd WebGL
+          ls 
+          echo "--"
+          cd WebGL
+          ls 
+          cd ..
+          cd ..
+          cd ..
+          
+      - name: Copying
+        run: |
+          ls
+          cp build/WebGl/WebGL/* BuildWebGL/
+
 
       - name: Commit artifact
         run: |
           git config --local user.email "erian.alves@ufv.br"
           git config --local user.name "Erian-A"
-          cp build/WebGl/WebGL/* BuildWebGL
           git add ./BuildWebGL
           git commit -m "Add build"
       - name: Push changes # push the output folder to your repo
