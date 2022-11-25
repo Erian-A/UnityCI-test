@@ -82,7 +82,7 @@ jobs:
       - name: Copying
         run: |
           ls
-          cp build/WebGL/WebGL/* BuildWebGL/
+          cp -r build/WebGL/WebGL/* BuildWebGL/
 
 
       - name: Commit artifact
